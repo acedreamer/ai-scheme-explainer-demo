@@ -1,0 +1,201 @@
+/* =================================== */
+/* THEME & FONT CONFIGURATION     */
+/* =================================== */
+:root {
+    /* ----- COLOR SCHEME (TECH THEME) ----- */
+    --color-primary: #60a5fa;   /* A bright, modern blue */
+    --color-secondary: #34d399; /* A vibrant green */
+    --color-background: #0c1427;/* A very deep, professional blue */
+    --color-text: #dbeafe;      /* A light, soft blue-gray */
+    --color-text-darker: #94a3b8;/* For less important text */
+    --color-content-bg: #172542; /* Background for content sections */
+    --color-card-bg: rgba(23, 37, 61, 0.5); /* Card background with transparency */
+    --color-border: rgba(255, 255, 255, 0.1);
+
+    /* ----- FONTS ----- */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif; /* Using Poppins for body for consistency */
+}
+
+
+/* =================================== */
+/* BASE STYLES & LAYOUT           */
+/* =================================== */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: white;
+}
+
+.bg-content-area {
+    background-color: var(--color-content-bg);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+}
+
+.section-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-text-darker);
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =================================== */
+/* COMPONENT STYLES               */
+/* =================================== */
+
+/* ----- HERO SECTION ----- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(12, 20, 39, 0.5) 0%, var(--color-background) 70%);
+}
+.hero-content {
+    position: relative;
+    z-index: 10;
+}
+.dynamic-title {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: background-pan 3s linear infinite;
+}
+
+/* ----- CALL TO ACTION BUTTON ----- */
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    color: #0c1427;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 1.125rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px -5px rgba(52, 211, 153, 0.2);
+}
+.cta-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 25px -5px rgba(96, 165, 250, 0.3);
+}
+
+/* ----- "HOW IT WORKS" STEP CARDS ----- */
+.step-card {
+    background: var(--color-card-bg);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.step-icon {
+    width: 3rem; height: 3rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 1.5rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* ----- TEAM ROLE CARDS ----- */
+.role-card {
+    background: var(--color-card-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.role-card:hover {
+    transform: translateY(-8px);
+    background-color: var(--color-content-bg);
+}
+.role-title { font-size: 1.5rem; font-weight: 900; color: white; letter-spacing: -0.025em; }
+.role-subtitle { font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.75rem; }
+.role-time-tag { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; }
+.full-time-tag { background-color: var(--color-primary); color: white; }
+.part-time-tag { background-color: var(--color-secondary); color: #064e3b; }
+.role-mission { color: var(--color-text-darker); margin-top: 1rem; font-size: 0.9rem; }
+.role-tasks { text-align: left; margin-top: 1rem; padding-left: 1.25rem; font-size: 0.9rem; list-style-type: disc; }
+.role-tasks li { margin-bottom: 0.25rem; }
+
+/* ----- 10-DAY PLAN CARDS ----- */
+.day-card {
+    background-color: var(--color-content-bg);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.5rem; margin-bottom: 2rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.day-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.day-title { color: white; font-size: 1.5rem; font-weight: 700; }
+.day-mission { color: var(--color-text-darker); margin-bottom: 1rem; font-style: italic; }
+.day-tasks { list-style-type: none; padding-left: 0; }
+.day-tasks li { background-color: var(--color-card-bg); padding: 0.75rem; border-radius: 0.25rem; margin-bottom: 0.5rem; border-left: 2px solid var(--color-secondary); }
+.day-tasks strong { color: var(--color-secondary); }
+
+/* ----- FOOTER ----- */
+.footer-link {
+    color: var(--color-text-darker);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.footer-link:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* =================================== */
+/* ANIMATION DEFINITIONS          */
+/* =================================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-fade-in { animation: fadeIn 1s 0.2s ease-in-out forwards; opacity: 0; }
+.animate-fade-in-up { animation: fadeInUp 1s 0.4s ease-in-out forwards; opacity: 0; }
+.is-visible { opacity: 1; transform: translateY(0); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes background-pan {
+    0% { background-position: 0% center; }
+    100% { background-position: -200% center; }
+}
+.dynamic-title {
+    background-size: 200%;
+}
